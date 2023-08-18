@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  padding: 0rem 4rem;
+}
+
+header {
+  height: 8rem;
+  width: 100%;
+  padding: 0rem 4rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.siteName {
+  font-size: 3rem;
+}
+
+nav {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav > input {
+  width: 30rem;
+  height: 45%;
+  padding: 0rem 1rem;
+  font-size: 1.5rem;
+
+  border: 2px solid black;
+  border-radius: 5px;
+  outline: none;
+}
+
+nav > i {
+  font-size: 2.5rem;
+}
+
+.heroSection {
+  height: 70rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.heroSection > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: all 1000ms ease;
+}
+
+.heroSection > div > img {
+  width: 100%;
+  height: 100%;
+}
+
+section > h2 {
+  font-size: 7rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+}
+
+.containerDiv {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: flex-start;
+  gap: 4rem;
+}
+
+.section1,
+.section2,
+.section3,
+.section4 {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: flex-start;
+  gap: 4rem;
+}
+
+.imgDiv {
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  width: 30rem;
+  height: 30rem;
+}
+
+.hoverDiv {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  transition: 200ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1rem 1.4rem;
+}
+
+.hoverDiv > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hoverDiv h2 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 2.2rem;
+  color: yellow;
+}
+
+.hoverDiv span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
+.hoverDiv:hover {
+  opacity: 1;
+}
+
+footer {
+  width: 100%;
+  height: 5rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-top: 2px solid black;
+}
+
+/* Media */
+
+@media (width < 1130px) {
+  .container {
+    padding: 0rem;
+  }
+}
+
+/*  */
+
+@media (width < 940px) {
+  .heroSection {
+    height: 50rem;
+  }
+
+  .heroSection > div {
+    overflow: hidden;
+  }
+
+  .heroSection > div > img {
+    position: relative;
+    left: -5%;
+    width: 110%;
+  }
+}
+
+/*  */
+
+@media (width < 650px) {
+  header {
+    padding: 0rem 2rem;
+  }
+  nav > input {
+    width: 30vw;
+  }
+
+  section > h2 {
+    font-size: 5rem;
+  }
+}
+
+/*  */
+
+@media (width < 600px) {
+  .heroSection {
+    height: 40rem;
+  }
+}
+
+/*  */
+
+@media (width < 500px) {
+  .heroSection {
+    height: 30rem;
+  }
+}
+
+/*  */
+
+@media (width < 400px) {
+  .heroSection {
+    height: 25rem;
+  }
+  section > h2 {
+    font-size: 4rem;
+  }
+}
+
+/*  */
+
+@media (width < 350px) {
+  header {
+    padding: 0rem 1rem;
+  }
+  nav {
+    gap: 0.5rem;
+  }
+}
+
+/*  */
+
+@media (width < 300px) {
+  .heroSection {
+    height: 20rem;
+  }
+}

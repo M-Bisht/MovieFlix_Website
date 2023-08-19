@@ -45,7 +45,6 @@ function optionData() {
 
 async function apiData() {
   const options = optionData();
-  console.log(options);
   try {
     const response = await axios.request(options);
     return (returnData = response.data.d);
@@ -62,7 +61,6 @@ async function sectionData(section) {
   let H2 = document.createElement("h2");
   H2.append(search);
   section.appendChild(H2);
-  console.log(H2);
 
   // Creating Container div
   let containerDiv = document.createElement("div");
@@ -70,8 +68,6 @@ async function sectionData(section) {
   section.appendChild(containerDiv);
 
   returnData.forEach((elem, index) => {
-    console.log(elem);
-
     // Creating div
     let div = document.createElement("div");
     div.classList.add(`imgDiv`);
@@ -134,3 +130,68 @@ async function SectionCall() {
 }
 
 SectionCall();
+
+// Search
+
+let input = document.querySelector("input");
+const searchButton = document.querySelector(".fa-solid");
+const header = document.querySelector("header");
+const sections = document.querySelectorAll("section");
+const body = document.querySelector("body");
+
+searchButton.addEventListener("click", () => {
+  let inputVal = input.value;
+  if (inputVal.length != 0) {
+    const options = {
+      method: "GET",
+      url: "https://imdb8.p.rapidapi.com/auto-complete",
+      params: { q: inputVal },
+      headers: {
+        "X-RapidAPI-Key": "0b49101d79mshab8379fd6a0761cp1f25ffjsna37478f04c2d",
+        "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
+      },
+    };
+
+    async function searchData() {
+      try {
+        const response = await axios.request(options);
+        let data = response.data.d;
+        for (const section of sections) {
+          section.style.display = "none";
+        }
+        heroSection.style.display = "none";
+        let div = document.createElement("div");
+        div.classList.add("searchDiv");
+        header.insertAdjacentElement("afterend", div);
+        let closeButton = document.createElement("Button");
+        closeButton.classList.add("closeButton");
+        closeButton.append("Close");
+        div.appendChild(closeButton);
+
+        closeButton.addEventListener("click", () => {
+          for (const section of sections) {
+            section.style.display = "flex";
+          }
+          heroSection.style.display = "flex";
+          div.style.display = "none";
+        });
+
+        // data.forEach((elem) => {
+        //   console.log(elem);
+        // })
+
+        async function SectionCall() {
+          search = inputVal;
+          await sectionData(div);
+          div.style.padding = "4rem 0rem";
+        }
+        SectionCall();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    searchData();
+  } else {
+    return;
+  }
+});

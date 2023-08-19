@@ -142,20 +142,8 @@ const body = document.querySelector("body");
 searchButton.addEventListener("click", () => {
   let inputVal = input.value;
   if (inputVal.length != 0) {
-    const options = {
-      method: "GET",
-      url: "https://imdb8.p.rapidapi.com/auto-complete",
-      params: { q: inputVal },
-      headers: {
-        "X-RapidAPI-Key": "0b49101d79mshab8379fd6a0761cp1f25ffjsna37478f04c2d",
-        "X-RapidAPI-Host": "online-movie-database.p.rapidapi.com",
-      },
-    };
-
     async function searchData() {
       try {
-        const response = await axios.request(options);
-        let data = response.data.d;
         for (const section of sections) {
           section.style.display = "none";
         }
